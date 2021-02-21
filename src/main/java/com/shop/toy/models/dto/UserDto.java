@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDto  {
-    private Long id;
+    private Long idqwe;
     @Email(message = "bad email")
     private String username;
     @Size(min = 3, max = 10, message = "password contains from 3 to 10 signs")

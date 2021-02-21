@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--data.xml-->
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet id="add_data_in_table_users" author="alex_ned">
+        <insert tableName="users">
+            <column name="username" value="admin@toy.shop.com"/>
+            <column name="password" value="admin"/>
+            <column name="role" value="ADMIN"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="a.filipov@gmail.com"/>
+            <column name="password" value="filipov"/>
+            <column name="role" value="CLIENT"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="l.karashka@gmail.com"/>
+            <column name="password" value="karashka"/>
+            <column name="role" value="CLIENT"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="add_data_in_table_client" author="alex_ned">
+        <insert tableName="client">
+            <column name="first_name" value="Artem"/>
+            <column name="middle_name" value="Artemovich"/>
+            <column name="last_name" value="Filipov"/>
+            <column name="gender" value="MALE"/>
+            <column name="users_id" valueComputed="(select id from users where username = 'a.filipov@gmail.com')"/>
+        </insert>
+        <insert tableName="client">
+            <column name="first_name" value="Ludmila"/>
+            <column name="middle_name" value="Petrovna"/>
+            <column name="last_name" value="Karashka"/>
+            <column name="gender" value="FEMALE"/>
+            <column name="users_id" valueComputed="(select id from users where username = 'l.karashka@gmail.com')"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="add_data_in_table_employee" author="alex_ned">
+        <insert tableName="employee">
+            <column name="first_name" value="Sergey"/>
+            <column name="middle_name" value="Ivanovich"/>
+            <column name="last_name" value="Petrov"/>
+            <column name="gender" value="MALE"/>
+            <column name="users_id" valueComputed="(select id from users where username = 'admin@toy.shop.com')"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

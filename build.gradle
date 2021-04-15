@@ -9,10 +9,11 @@ apply plugin: 'net.ltgt.apt-idea'
 
 group = 'com.shop'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '1.8'
 
 ext {
 	mapstructVersion = "1.4.1.Final"
+	jjwtVersion = "0.9.1"
 }
 
 configurations {
@@ -29,11 +30,15 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.liquibase:liquibase-core'
 	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+	implementation "io.jsonwebtoken:jjwt:${jjwtVersion}"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'org.postgresql:postgresql'
+	runtimeOnly 'com.h2database:h2'
+//	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 	testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"

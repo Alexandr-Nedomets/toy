@@ -1,17 +1,14 @@
 package com.shop.toy.models.entity;
 
 import com.shop.toy.models.entity.enumeration.Role;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.shop.toy.models.entity.enumeration.Status;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {
@@ -23,7 +20,14 @@ public class User {
     private String username;
     @Column(name = "password")
     private String password;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private Role role;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private Status status;
 }

@@ -1,23 +1,24 @@
 package com.shop.toy.models.dto;
 
 import com.shop.toy.models.entity.enumeration.Role;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.shop.toy.models.entity.enumeration.Status;
+import lombok.*;
 
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
 public class UserDto  {
-    private Long idqwe;
-    @Email(message = "bad email")
+
+    private Long id;
     private String username;
-    @Size(min = 3, max = 10, message = "password contains from 3 to 10 signs")
     private String password;
+    private String firstName;
+    private String lastName;
     private Role role;
+    private Status status;
 }
